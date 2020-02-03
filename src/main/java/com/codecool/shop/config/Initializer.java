@@ -31,6 +31,7 @@ public class Initializer implements ServletContextListener {
         supplierDataStore.add(amazon);
         supplierDataStore.add(lenovo);
         supplierDataStore.add(raspberry);
+        supplierDataStore.add(arduino);
 
         //setting up a new product category
         ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
