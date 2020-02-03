@@ -28,7 +28,7 @@ public class Initializer implements ServletContextListener {
         supplierDataStore.add(amazon);
         Supplier lenovo = new Supplier("Lenovo", "Computers");
         supplierDataStore.add(lenovo);
-        Supplier raspberry = new Supplier("Raspberry", "Single board computers");
+        Supplier raspberry = new Supplier("RaspberryPi", "Single board computers");
         supplierDataStore.add(raspberry);
 
         //setting up a new product category
@@ -41,6 +41,7 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("Amazon Fire", 49.9f, "USD", "Fantastic price. Large content ecosystem. Good parental controls. Helpful technical support.", tablet, amazon));
         productDataStore.add(new Product("Lenovo IdeaPad Miix 700", 479, "USD", "Keyboard cover is included. Fanless Core m5 processor. Full-size USB ports. Adjustable kickstand.", tablet, lenovo));
         productDataStore.add(new Product("Amazon Fire HD 8", 89, "USD", "Amazon's latest Fire HD 8 tablet is a great value for media consumption.", tablet, amazon));
-        productDataStore.add(new Product("Raspberry Pi 3B", 80, "USD", "sample text", sbc, amazon));
+        productDataStore.add(new Product("Raspberry Pi 3B", 48.85f, "USD", "The Raspberry Pi 3 Model B is the earliest model of the third-generation Raspberry Pi.", sbc, raspberry));
+        productDataStore.add(new Product("Raspberry Pi 3B+", 55.96f, "USD", "The Raspberry Pi 3 Model B+ is the highest performing model in this generation of SBC-s", sbc, raspberry));
     }
 }
