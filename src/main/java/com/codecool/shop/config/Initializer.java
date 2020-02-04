@@ -29,10 +29,13 @@ public class Initializer implements ServletContextListener {
         Supplier raspberry = new Supplier("RaspberryPi", "Single board computers");
         Supplier arduino = new Supplier("Arduino", "Micro controllers");
         Supplier asus = new Supplier("ASUS", "Notebooks");
+        Supplier apple = new Supplier("Apple", "Consumer electronics");
         supplierDataStore.add(amazon);
         supplierDataStore.add(lenovo);
         supplierDataStore.add(raspberry);
         supplierDataStore.add(arduino);
+        supplierDataStore.add(asus);
+        supplierDataStore.add(apple);
 
         //setting up a new product category
         ProductCategory tablet = new ProductCategory("Tablet", "Hardware", "A tablet computer, commonly shortened to tablet, is a thin, flat mobile computer with a touchscreen display.");
@@ -52,5 +55,8 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("Arduino Uno R3", 18, "USD", "Great for learning the basics of how sensors and actuators work, and an essential tool for your rapid prototyping needs", sbc, arduino));
         productDataStore.add(new Product("Lenovo IdeaPad S145", 466.99f, "USD", "This notebook is designed for long time portable performance, with its i5 processor", notebook, lenovo));
         productDataStore.add(new Product("Lenovo Legion Y540", 998.99f, "USD", "This gaming laptop has the top of the line performance for the best price on the market right now, you games definetly won't lag.", notebook, lenovo));
+        productDataStore.add(new Product("ASUS ROG Strix G531GT", 999.9f, "USD", "Join the Republic Of Gamers with this laptop, its cooling solution will definetly last longer then your gaming session", notebook, asus));
+        productDataStore.add(new Product("Apple MacBook Pro 16", 2999.9f, "USD", "Apple's 16-inch MacBook Pro is basically every creative’s dream machine, with a ton of power and a vastly improved keyboard.", notebook, apple));
+
     }
 }

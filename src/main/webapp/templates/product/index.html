@@ -40,8 +40,8 @@
     <div class="card" th:each="category,iterStat : ${categories}">
         <strong th:text="${category.name}">Category Title</strong>
             <div id="products" class="row">
-                <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
-                    <div th:if="${prod.getProductCategory().getName() == category.name}">
+                <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}" th:if="${prod.getProductCategory().getName() == category.name}">
+                    <div>
                     <div class="card">
                         <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
                         <div class="card-header">
