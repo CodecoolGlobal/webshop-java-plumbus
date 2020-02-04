@@ -12,31 +12,39 @@ function sortCategories() {
     const categories = document.querySelectorAll(".category");
     for (let category of categories) {
         category.addEventListener('click', function () {
-            selectedCategories.add(category.firstElementChild.innerHTML);
-            console.log(selectedCategories);
-            const cards = document.querySelectorAll("[data-label='category']");
-            for (let card of cards) {
-                if (!selectedCategories.has(card.firstElementChild.innerHTML)) {
-                    card.setAttribute("class", "hidden-card")
-                } else {
-                    card.setAttribute("class", "card");
-                }
+        const cards = document.querySelectorAll("[data-label='card']");
+            if (!selectedCategories.has(category.firstElementChild.innerHTML)) {
+                selectedCategories.add(category.firstElementChild.innerHTML);
+                console.log(selectedCategories);
+                setAttributes(cards, selectedCategories);
+            } else {
+                selectedCategories.delete(category.firstElementChild.innerHTML);
+                setAttributes(cards, selectedCategories)
             }
             if (selectedCategories.has("All")) {
-                showAllCards(selectedCategories);
+                showAllCards();
                 selectedCategories.clear();
             }
         })
     }
 }
 
+function setAttributes(elements, storage) {
+    for (let element of elements) {
+        if (!storage.has(element.firstElementChild.innerHTML)) {
+            element.setAttribute("class", "hidden-card")
+        } else {
+            element.setAttribute("class", "card");
+        }
+    }
+}
 
-function showAllCards(cardsSet) {
+
+function showAllCards() {
     const hiddenCards = document.querySelectorAll(".hidden-card");
     for (let hiddenCard of hiddenCards) {
         hiddenCard.setAttribute("class", "card")
     }
-    cardsSet.clear();
 }
 
 
