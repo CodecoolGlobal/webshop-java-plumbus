@@ -28,12 +28,19 @@
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <script src="../../static/js/category.js" defer></script>
 </head>
 
 <body>
 
 <div class="jumbotron text-center">
     <h1>Codecool Shop</h1>
+</div>
+
+<div class="category-container">
+    <div class="category" th:each="category, iterStat : ${categories}">
+        <button class="category-name" th:text="${category.name}">Categories</button>
+    </div>
 </div>
 
 <div class="container">
