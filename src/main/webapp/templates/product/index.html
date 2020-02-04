@@ -29,6 +29,7 @@
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
     <script src="../../static/js/category.js" defer></script>
+    <script type="text/javascript" th:attr="src='/static/js/cart.js'"></script>
 </head>
 
 <body>
@@ -38,13 +39,16 @@
 </div>
 
 <div class="category-container">
+    <div class="category">
+        <button class="category-name" value="All">All</button>
+    </div>
     <div class="category" th:each="category, iterStat : ${categories}">
         <button class="category-name" th:text="${category.name}">Categories</button>
     </div>
 </div>
 
 <div class="container">
-    <div class="card" th:each="category,iterStat : ${categories}">
+    <div class="card" data-label="category" th:each="category,iterStat : ${categories}">
         <strong th:text="${category.name}">Category Title</strong>
             <div id="products" class="row">
                 <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}">
@@ -60,7 +64,7 @@
                                 <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                             </div>
                             <div class="card-text">
-                                <a class="btn btn-success" href="#">Add to cart</a>
+                                <button class="btn btn-success" type="button" th:id="${prod.name}">Add to cart</button>
                             </div>
                         </div>
                     </div>

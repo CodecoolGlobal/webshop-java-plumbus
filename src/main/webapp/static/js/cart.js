@@ -17,6 +17,7 @@ function main() {
         postFetch("/api/cart", cart);
         setSessionStorage("cart", cart);
     }
+
     const buttons = document.querySelectorAll(".btn");
     let items = {};
     for (let button of buttons) {

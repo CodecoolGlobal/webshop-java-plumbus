@@ -5,3 +5,7 @@
 .category-container {
     margin-bottom: 2rem;
 }
+
+.hidden-card {
+    display: none;
+}
