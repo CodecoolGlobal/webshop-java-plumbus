@@ -2,7 +2,6 @@
 
 function main() {
     function setSessionStorage(name, object) {
-        console.log(object);
         sessionStorage.setItem(name, JSON.stringify(object));
     }
 
@@ -27,7 +26,6 @@ function main() {
 
 }
 window.onload = main;
-
     async function postFetch(url, data) {
         try {postData(url, data) // JSON-string from `response.json()` call
         } catch (error) {return console.error(error);}
