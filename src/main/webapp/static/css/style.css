@@ -11,3 +11,11 @@
     font-weight: bold;
     color: white;
 }
+
+.btn-success{
+    background-color: blue;
+}
+
+.btn {
+    border-radius: .7rem;
+}

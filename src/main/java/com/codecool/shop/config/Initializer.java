@@ -63,6 +63,7 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("GIGABYTE GeForce GTX 1050 Ti OC 4GB", 165, "USD", "Most popular choice among low budget gamers", gpu, gigabyte));
         productDataStore.add(new Product("GIGABYTE GeForce RTX 2060 SUPER AORUS 8GB", 519.9f, "USD", "Nice looking Graphics Card with RGB lighting", gpu, gigabyte));
         productDataStore.add(new Product("AMD Ryzen 5 3600 Hexa-Core 3.6GHz AM4 Processor", 209.9f, "USD", "Get the best performance per dollar out of a CPU with this processor", cpu, amd));
+        productDataStore.add(new Product("AMD Ryzen 7 3700x Octa-Core 3.6GHz AM4", 399.9f, "USD", "Get the best 8 core CPU on the market right now.", cpu, amd));
 
 
 
