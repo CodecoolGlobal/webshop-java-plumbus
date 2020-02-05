@@ -31,6 +31,7 @@ public class Initializer implements ServletContextListener {
         Supplier asus = new Supplier("ASUS", "Notebooks");
         Supplier apple = new Supplier("Apple", "Consumer electronics");
         Supplier gigabyte = new Supplier("Gigabyte", "Computer parts");
+        Supplier amd = new Supplier("AMD", "Processing units");
         supplierDataStore.add(amazon);
         supplierDataStore.add(lenovo);
         supplierDataStore.add(raspberry);
@@ -42,9 +43,11 @@ public class Initializer implements ServletContextListener {
         ProductCategory sbc = new ProductCategory("Single Board Computer", "Hardware", "Single board computers are used for lightweight tasks, they need very little amount of power.");
         ProductCategory notebook = new ProductCategory("Notebook", "Hardware", "Notebooks are reliable way of having a computer with you on the go.");
         ProductCategory gpu = new ProductCategory("Graphics Card", "Hardware", "Graphics card are mainly used for gaming, it boosts the graphical processing power of the computer");
+        ProductCategory cpu = new ProductCategory("CPU", "Hardware", "Central processing units are the brain of computers");
         productCategoryDataStore.add(sbc);
         productCategoryDataStore.add(notebook);
         productCategoryDataStore.add(gpu);
+        productCategoryDataStore.add(cpu);
 
         //setting up products and printing it
         productDataStore.add(new Product("Raspberry Pi 3B", 48.85f, "USD", "The Raspberry Pi 3 Model B is the earliest model of the third-generation Raspberry Pi.", sbc, raspberry));
@@ -59,6 +62,7 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("Gigabyte GeForce GTX 1660 Ti OC 6GB", 319.9f, "USD", "This unit has a Windforce cooling system, that keeps the gpu cool for long sessions.", gpu, gigabyte));
         productDataStore.add(new Product("GIGABYTE GeForce GTX 1050 Ti OC 4GB", 165, "USD", "Most popular choice among low budget gamers", gpu, gigabyte));
         productDataStore.add(new Product("GIGABYTE GeForce RTX 2060 SUPER AORUS 8GB", 519.9f, "USD", "Nice looking Graphics Card with RGB lighting", gpu, gigabyte));
+        productDataStore.add(new Product("AMD Ryzen 5 3600 Hexa-Core 3.6GHz AM4 Processor", 209.9f, "USD", "Get the best performance per dollar out of a CPU with this processor", cpu, amd));
 
 
 
