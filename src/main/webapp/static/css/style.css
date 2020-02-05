@@ -1,3 +1,21 @@
 .card {
     margin-bottom: 3%;
 }
+
+.jumbotron.text-center {
+    background-image: url(https://st2.depositphotos.com/1968353/7849/v/600/depositphotos_78493496-stock-video-pcb-background-loopable-animation.jpg);
+}
+
+.main_title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: white;
+}
+
+.btn-success{
+    background-color: blue;
+}
+
+.btn {
+    border-radius: .7rem;
+}
