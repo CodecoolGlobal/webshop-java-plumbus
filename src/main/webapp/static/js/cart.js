@@ -13,7 +13,7 @@ function main() {
     function addItem() {
         let cart = getSessionStorage("cart");
         let name = this.id;
-        cart[name].quantity++;
+        cart.items[name].quantity++;
         postFetch("/api/cart", cart);
         setSessionStorage("cart", cart);
     }
@@ -21,9 +21,9 @@ function main() {
     let items = {};
     for (let button of buttons) {
         button.addEventListener("click", addItem);
-        items[button.id] = {quantity : 0};
+        items[button.id] = {name : button.id, quantity : 0};
     }
-    setSessionStorage("cart", items)
+    setSessionStorage("cart", {items: items})
 
 }
 window.onload = main;
