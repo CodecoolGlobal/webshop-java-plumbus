@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <script type="text/javascript" th:attr="src='/static/js/cart.js'"></script>
 </head>
 
 <body>
@@ -53,7 +54,7 @@
                                 <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                             </div>
                             <div class="card-text">
-                                <a class="btn btn-success" href="#">Add to cart</a>
+                                <button class="btn btn-success" type="button" th:id="${prod.name}">Add to cart</button>
                             </div>
                         </div>
                     </div>
