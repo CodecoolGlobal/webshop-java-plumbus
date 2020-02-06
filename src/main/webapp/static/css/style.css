@@ -27,3 +27,10 @@
 .hidden-card {
     display: none;
 }
+
+.price {
+    text-align: right;
+    clear: right;
+    font-size: 1.1rem;
+    font-weight: bold;
+}

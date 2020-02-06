@@ -34,7 +34,7 @@
 <body>
 
 <div class="jumbotron text-center">
-    <h1 class="main_title">Electonics Shop</h1>
+    <h1 class="main_title">Electronics Shop</h1>
 </div>
 
 <div class="category-container">
@@ -45,6 +45,8 @@
         <button class="category-name" th:text="${category.name}">Categories</button>
     </div>
 </div>
+
+<a href="/cart">Cart</a>
 
 <div class="container">
     <div class="card" data-label="card" th:each="category,iterStat : ${categories}">
