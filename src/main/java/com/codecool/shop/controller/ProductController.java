@@ -3,9 +3,10 @@ package com.codecool.shop.controller;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
-import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
 import com.google.gson.Gson;
+import com.codecool.shop.dao.implementation.ProductDaoMem;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.IContext;
 import org.thymeleaf.context.WebContext;
@@ -16,8 +17,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.HashMap;
-import java.util.Map;
 
 @WebServlet(urlPatterns = {"/"})
 public class ProductController extends HttpServlet {
@@ -38,12 +37,6 @@ public class ProductController extends HttpServlet {
         // params.put("products", productDataStore.getBy(productCategoryDataStore.find(1)));
         // context.setVariables(params);
         engine.process("product/index.html", context, resp.getWriter());
-/*
-        String json = new Gson().toJson(productCategoryDataStore.getAll());
-        resp.setContentType("application/json");
-        resp.setCharacterEncoding("UTF-8");
-
- */
     }
 
 }
