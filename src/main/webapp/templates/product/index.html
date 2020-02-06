@@ -28,14 +28,13 @@
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-    <script src="../../static/js/category.js" defer></script>
-    <script type="text/javascript" th:attr="src='/static/js/cart.js'"></script>
+    <script type="module" th:attr="src='/static/js/main.js'"></script>
 </head>
 
 <body>
 
 <div class="jumbotron text-center">
-    <h1 class="main_title">Electonics Shop</h1>
+    <h1 class="main_title">Electronics Shop</h1>
 </div>
 
 <div class="category-container">
@@ -46,6 +45,8 @@
         <button class="category-name" th:text="${category.name}">Categories</button>
     </div>
 </div>
+
+<a href="/cart">Cart</a>
 
 <div class="container">
     <div class="card" data-label="card" th:each="category,iterStat : ${categories}">
