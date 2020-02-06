@@ -9,19 +9,21 @@ function getSessionStorage(name) {
 
 function sortCategories() {
     const selectedCategories = new Set();
-    const categories = document.querySelectorAll(".category");
+    const categories = document.querySelectorAll(".category-name");
     for (let category of categories) {
         category.addEventListener('click', function () {
         const cards = document.querySelectorAll("[data-label='card']");
-            if (!selectedCategories.has(category.firstElementChild.innerHTML)) {
-                selectedCategories.add(category.firstElementChild.innerHTML);
-                console.log(selectedCategories);
+            if (!selectedCategories.has(category.innerHTML)) {
+                selectedCategories.add(category.innerHTML);
+                if (category.innerHTML !== "All") category.style.backgroundColor = "grey";
                 setAttributes(cards, selectedCategories);
             } else {
-                selectedCategories.delete(category.firstElementChild.innerHTML);
+                selectedCategories.delete(category.innerHTML);
+                category.style.backgroundColor = null;
                 setAttributes(cards, selectedCategories)
             }
             if (selectedCategories.has("All")) {
+                categories.forEach(element => element.style.backgroundColor = null);
                 showAllCards();
                 selectedCategories.clear();
             }
@@ -39,7 +41,6 @@ function setAttributes(elements, storage) {
     }
 }
 
-
 function showAllCards() {
     const hiddenCards = document.querySelectorAll(".hidden-card");
     for (let hiddenCard of hiddenCards) {
@@ -47,5 +48,4 @@ function showAllCards() {
     }
 }
 
-
-sortCategories();
+window.onload = sortCategories;
