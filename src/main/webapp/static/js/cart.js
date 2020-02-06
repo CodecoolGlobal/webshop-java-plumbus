@@ -1,6 +1,4 @@
-// nice shit
-
-function main() {
+export function cartInit() {
     function setLocalStorage(name, object) {
         localStorage.setItem(name, JSON.stringify(object));
         console.log(object);
@@ -30,7 +28,6 @@ function main() {
     }
 
 }
-window.onload = main;
     async function postFetch(url, data) {
         try {postData(url, data) // JSON-string from `response.json()` call
         } catch (error) {return console.error(error);}

@@ -7,7 +7,7 @@ function getSessionStorage(name) {
     return JSON.parse(sessionStorage.getItem(name));
 }
 
-function sortCategories() {
+export function sortCategories() {
     const selectedCategories = new Set();
     const categories = document.querySelectorAll(".category-name");
     for (let category of categories) {
@@ -47,5 +47,3 @@ function showAllCards() {
         hiddenCard.setAttribute("class", "card")
     }
 }
-
-window.onload = sortCategories;
