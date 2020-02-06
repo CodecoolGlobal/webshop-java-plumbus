@@ -20,6 +20,14 @@
     border-radius: .7rem;
 }
 
+.category-container {
+    margin-bottom: 2rem;
+}
+
+.hidden-card {
+    display: none;
+}
+
 .price {
     text-align: right;
     clear: right;

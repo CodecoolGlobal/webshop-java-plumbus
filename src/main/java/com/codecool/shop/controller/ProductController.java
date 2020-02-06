@@ -5,8 +5,10 @@ import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.config.TemplateEngineUtil;
+import com.google.gson.Gson;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import org.thymeleaf.TemplateEngine;
+import org.thymeleaf.context.IContext;
 import org.thymeleaf.context.WebContext;
 
 import javax.servlet.ServletException;

@@ -28,7 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
-    <script type="text/javascript" th:attr="src='/static/js/cart.js'"></script>
+    <script type="module" th:attr="src='/static/js/main.js'"></script>
 </head>
 
 <body>
@@ -37,10 +37,19 @@
     <h1 class="main_title">Electronics Shop</h1>
 </div>
 
+<div class="category-container">
+    <div class="category">
+        <button class="category-name" value="All">All</button>
+    </div>
+    <div class="category" th:each="category, iterStat : ${categories}">
+        <button class="category-name" th:text="${category.name}">Categories</button>
+    </div>
+</div>
+
 <a href="/cart">Cart</a>
 
 <div class="container">
-    <div class="card" th:each="category,iterStat : ${categories}">
+    <div class="card" data-label="card" th:each="category,iterStat : ${categories}">
         <strong th:text="${category.name}">Category Title</strong>
             <div id="products" class="row">
                 <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}" th:if="${prod.getProductCategory().getName() == category.name}">
