@@ -15,7 +15,7 @@ export function sortCategories() {
         const cards = document.querySelectorAll("[data-label='card']");
             if (!selectedCategories.has(category.innerHTML)) {
                 selectedCategories.add(category.innerHTML);
-                if (category.innerHTML !== "All") category.style.backgroundColor = "grey";
+                if (category.innerHTML !== "All") category.style.backgroundColor = "green";
                 setAttributes(cards, selectedCategories);
             } else {
                 selectedCategories.delete(category.innerHTML);

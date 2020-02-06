@@ -40,6 +40,8 @@ button:hover {
 .category-name {
     border-radius: 15px;
     font-size: 2rem;
+    background-color: blue;
+    color: #eeeeee;
 }
 
 .price {
@@ -47,4 +49,9 @@ button:hover {
     clear: right;
     font-size: 1.1rem;
     font-weight: bold;
+}
+
+.category-name img {
+    height: 3rem;
+    width: 3rem;
 }
