@@ -1,20 +1,21 @@
 // nice shit
 
 function main() {
-    function setSessionStorage(name, object) {
-        sessionStorage.setItem(name, JSON.stringify(object));
+    function setLocalStorage(name, object) {
+        localStorage.setItem(name, JSON.stringify(object));
+        console.log(object);
     }
 
-    function getSessionStorage(name) {
-        return JSON.parse(sessionStorage.getItem(name));
+    function getLocalStorage(name) {
+        return JSON.parse(localStorage.getItem(name));
     }
 
     function addItem() {
-        let cart = getSessionStorage("cart");
+        let cart = getLocalStorage("cart");
         let name = this.id;
         cart.items[name].quantity++;
         postFetch("/api/cart", cart);
-        setSessionStorage("cart", cart);
+        setLocalStorage("cart", cart);
     }
 
     const buttons = document.querySelectorAll(".btn");
@@ -23,7 +24,10 @@ function main() {
         button.addEventListener("click", addItem);
         items[button.id] = {name : button.id, quantity : 0};
     }
-    setSessionStorage("cart", {items: items})
+
+    if (getLocalStorage("cart") == null) {
+        setLocalStorage("cart", {items: items})
+    }
 
 }
 window.onload = main;
