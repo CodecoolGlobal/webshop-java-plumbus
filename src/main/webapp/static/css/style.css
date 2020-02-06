@@ -21,9 +21,23 @@
 }
 
 .category-container {
+    text-align-last: center;
     margin-bottom: 2rem;
 }
 
 .hidden-card {
     display: none;
+}
+
+.category {
+    display: inline;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.category-name {
+    border-radius: 15px;
+    font-size: 2rem;
 }
