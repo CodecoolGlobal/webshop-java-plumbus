@@ -44,7 +44,7 @@
     <div class="category" th:each="category, iterStat : ${categories}">
         <button class="category-name" th:text="${category.name}">Categories</button>
     </div>
-<a href="/cart"><button class="category-name"><img src="/static/img/Shopping-Cart-icon.png"></button></a>
+<a class="cart" href="/cart"><button class="category-name"><img src="/static/img/Shopping-Cart-icon.png"></button></a>
 </div>
 
 

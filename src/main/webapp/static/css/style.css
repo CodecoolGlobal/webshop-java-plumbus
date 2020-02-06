@@ -23,6 +23,7 @@
 .category-container {
     text-align-last: center;
     margin-bottom: 2rem;
+    margin-left: 3rem;
 }
 
 .hidden-card {
@@ -54,4 +55,8 @@ button:hover {
 .category-name img {
     height: 3rem;
     width: 3rem;
+}
+
+.cart {
+    margin-left:8rem;
 }
