@@ -19,3 +19,10 @@
 .btn {
     border-radius: .7rem;
 }
+
+.price {
+    text-align: right;
+    clear: right;
+    font-size: 1.1rem;
+    font-weight: bold;
+}
