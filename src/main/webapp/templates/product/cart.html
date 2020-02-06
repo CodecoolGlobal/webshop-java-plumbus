@@ -18,7 +18,7 @@
 
     <!-- Latest compiled and minified JavaScript -->
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
-    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
+            integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
@@ -37,34 +37,22 @@
     <h1 class="main_title">Electronics Shop</h1>
 </div>
 
+<h3>Cart Content:</h3>
 <div class="container">
-    <div class="card" th:each="category,iterStat : ${categories}">
-        <strong th:text="${category.name}">Category Title</strong>
-            <div id="products" class="row">
-                <div class="col col-sm-12 col-md-6 col-lg-4" th:each="prod,iterStat : ${products}" th:if="${prod.getProductCategory().getName() == category.name}">
-                    <div>
-                    <div class="card">
-                        <img class="" src="http://placehold.it/400x250/000/fff" th:attr="src='/static/img/product_' + ${prod.id} + '.jpg'" alt="" />
-                        <div class="card-header">
-                            <h4 class="card-title" th:text="${prod.name}">Product name</h4>
-                            <p class="card-text" th:text="${prod.description}">Product description... </p>
-                        </div>
-                        <div class="card-body">
-                            <div class="card-text">
-                                <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
-                            </div>
-                            <div class="card-text">
-                                <button class="btn btn-success" type="button" th:id="${prod.name}">Add to cart</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+    <div th:each="item,iterStat : ${items}">
+        <div class="card mb-3">
+            <!--<img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+                <h5 class="card-title" th:text="${item.name}">Card title</h5>
+                <p class="card-text">Price: <span th:text="${item.defaultPrice}"></span></p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
             </div>
         </div>
+
     </div>
-    <a href="/cart">Cart</a>
 
 </div>
+<a href="/">Main page</a>
 
 <div th:replace="footer.html :: copy"></div>
 
