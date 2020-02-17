@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/modal.css"/>
     <script type="module" th:attr="src='/static/js/main.js'"></script>
 </head>
 
@@ -36,6 +37,9 @@
 <div class="jumbotron text-center">
     <h1 class="main_title">Electronics Shop</h1>
 </div>
+
+<button class="" id="login_button" >Log in</button>
+<button class="" id="register_button" >Register</button>
 
 <div class="category-container">
     <div class="category">
@@ -49,6 +53,25 @@
 
 
 <div class="container">
+    <div class="modal">
+        <div class="modal-content">
+            <button id="close_modal" type="button">X</button>
+            <form id="login_form" class="hide">
+                <h2>Log in</h2><br>
+                <input name="login_name" id="login_name" placeholder="name"><br>
+                <input  name="login_password" id="login_password" placeholder="password" type="password"><br>
+                <button id="login_submit"  type="button">Login</button>
+                <h4 id="login_error"></h4>
+            </form>
+            <form id="register_form" class="hide">
+                <h2>Registration</h2><br>
+                <input name="register_name" id="register_name" placeholder="name"><br>
+                <input name="register_password" id="register_password" placeholder="password" type="password"><br>
+                <button id="register_submit" type="button">Register</button>
+                <h4 id="register_error"></h4>
+            </form>
+        </div>
+    </div>
     <div class="card" data-label="card" th:each="category,iterStat : ${categories}">
         <strong th:text="${category.name}">Category Title</strong>
             <div id="products" class="row">
