@@ -53,7 +53,8 @@ public class SupplierDaoMem implements SupplierDao {
             resultSet.next();
             return new Supplier(
                     resultSet.getString("name"),
-                    resultSet.getString("description"));
+                    resultSet.getString("description"),
+                    resultSet.getInt("id"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -69,7 +70,8 @@ public class SupplierDaoMem implements SupplierDao {
             resultSet.next();
             return new Supplier(
                     resultSet.getString("name"),
-                    resultSet.getString("description"));
+                    resultSet.getString("description"),
+                    resultSet.getInt("id"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -101,7 +103,8 @@ public class SupplierDaoMem implements SupplierDao {
         while (resultSet.next()) {
             result.add(new Supplier(
                     resultSet.getString("name"),
-                    resultSet.getString("description")));
+                    resultSet.getString("description"),
+                    resultSet.getInt("id")));
         }
         return result;
     } catch (SQLException e) {

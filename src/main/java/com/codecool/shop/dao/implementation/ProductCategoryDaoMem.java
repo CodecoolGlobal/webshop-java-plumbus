@@ -54,7 +54,7 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
             resultSet.next();
             return new ProductCategory(
                     resultSet.getString("name"), resultSet.getString("department"),
-                    resultSet.getString("description"));
+                    resultSet.getString("description"), resultSet.getInt("id"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -71,7 +71,7 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
             resultSet.next();
             return new ProductCategory(
                     resultSet.getString("name"), resultSet.getString("department"),
-                    resultSet.getString("description"));
+                    resultSet.getString("description"), resultSet.getInt("id"));
         } catch (SQLException e) {
             e.printStackTrace();
         }
@@ -103,7 +103,7 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
             while (resultSet.next()) {
                 result.add(new ProductCategory(
                         resultSet.getString("name"), resultSet.getString("department"),
-                        resultSet.getString("description")));
+                        resultSet.getString("description"), resultSet.getInt("id")));
             }
             return result;
         } catch (SQLException e) {
