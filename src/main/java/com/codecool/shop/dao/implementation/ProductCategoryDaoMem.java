@@ -64,7 +64,6 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
     @Override
     public void remove(int id) {
         try {
-            ArrayList<ProductCategory> result = new ArrayList<>();
             PreparedStatement remove = cursor.prepareStatement("SELECT * FROM product_category WHERE id = ?",
                     ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE);
             remove.setInt(1,id);

@@ -116,3 +116,10 @@ INSERT INTO public.product_category (id, name, department, description) VALUES (
 INSERT INTO public.product_category (id, name, department, description) VALUES (4, 'CPU', 'Hardware', 'Central processing units are the brain of computers');
 SELECT pg_catalog.setval('product_category_id_seq', 4, true);
 
+INSERT INTO public.supplier (id, name, description) VALUES (1, 'Amazon', 'Digital content and services');
+INSERT INTO public.supplier (id, name, description) VALUES (2, 'Lenovo', 'Notebooks');
+INSERT INTO public.supplier (id, name, description) VALUES (3, 'RaspberryPi', 'Single board computers');
+INSERT INTO public.supplier (id, name, description) VALUES (4, 'Arduino', 'Micro controllers');
+INSERT INTO public.supplier (id, name, description) VALUES (5, 'ASUS', 'Notebooks');
+INSERT INTO public.supplier (id, name, description) VALUES (6, 'Apple', 'Consumer electronics');
+SELECT pg_catalog.setval('supplier_id_seq', 6, true);
