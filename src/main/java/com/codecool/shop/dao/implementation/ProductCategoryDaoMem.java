@@ -61,6 +61,23 @@ public class ProductCategoryDaoMem implements ProductCategoryDao {
         return null;
     }
 
+
+    public ProductCategory find(String name) {
+        try {
+            PreparedStatement find = cursor.prepareStatement("SELECT * FROM product_category WHERE name = ?");
+            find.setString(1,name);
+            find.execute();
+            ResultSet resultSet = find.getResultSet();
+            resultSet.next();
+            return new ProductCategory(
+                    resultSet.getString("name"), resultSet.getString("department"),
+                    resultSet.getString("description"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public void remove(int id) {
         try {

@@ -60,6 +60,22 @@ public class SupplierDaoMem implements SupplierDao {
         return null;
     }
 
+    public Supplier find(String name) {
+        try {
+            PreparedStatement find = cursor.prepareStatement("SELECT * FROM supplier WHERE name = ?");
+            find.setString(1,name);
+            find.execute();
+            ResultSet resultSet = find.getResultSet();
+            resultSet.next();
+            return new Supplier(
+                    resultSet.getString("name"),
+                    resultSet.getString("description"));
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     @Override
     public void remove(int id) {
         try {
