@@ -108,7 +108,7 @@ ALTER TABLE ONLY orders
 
 
 
-INSERT INTO public.users (id, name, password) VALUES (1, 'admin', '$2b$12$olSVRWsB/1U/zexb3Oemced1Dn14OGH.ISfXMHWQFXpmCTF910DlO');
+INSERT INTO public.users (id, name, password) VALUES (1, 'admin', '$2a$12$zAvv1Y41FYZOMMY.hBld2.bXCfbw9flIWt3M94ZGFNd8lwMEYhWsG');
 SELECT pg_catalog.setval('users_id_seq', 1, true);
 
 INSERT INTO public.product_category (id, name, department, description) VALUES (1, 'Single Board Computer', 'Hardware', 'Single board computers are used for lightweight tasks, they need very little amount of power.');

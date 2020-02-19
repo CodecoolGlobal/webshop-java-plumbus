@@ -28,6 +28,7 @@
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css" />
     <!-- Import of own css -->
     <link rel="stylesheet" type="text/css" href="/static/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/css/modal.css"/>
     <script type="module" th:attr="src='/static/js/main.js'"></script>
 </head>
 
@@ -37,6 +38,10 @@
     <h1 class="main_title">Electronics Shop</h1>
 </div>
 
+<button class="" id="loginButton" >Log in</button>
+<button class="" id="registerButton" >Register</button>
+<h3 class="user" id="user"></h3>
+
 <div class="category-container">
     <div class="category">
         <button class="category-name" value="All">All</button>
@@ -44,11 +49,30 @@
     <div class="category" th:each="category, iterStat : ${categories}">
         <button class="category-name" th:text="${category.name}">Categories</button>
     </div>
-<a class="cart" href="/cart"><button class="category-name"><img src="/static/img/Shopping-Cart-icon.png"></button></a>
+<a class="data" href="/data"><button class="category-name"><img src="/static/img/Shopping-Cart-icon.png"></button></a>
 </div>
 
 
 <div class="container">
+    <div class="modal">
+        <div class="modal-content">
+            <button id="close_modal" type="button">X</button>
+            <form id="loginForm" class="hide">
+                <h2>Log in</h2><br>
+                <input name="loginName" id="loginName" placeholder="name"><br>
+                <input  name="loginPassword" id="loginPassword" placeholder="password" type="password"><br>
+                <button id="loginSubmit"  onclick="return false;">Login</button>
+                <h4 id="loginError"></h4>
+            </form>
+            <form id="registerForm" class="hide">
+                <h2>Registration</h2><br>
+                <input name="registerName" id="registerName" placeholder="name"><br>
+                <input name="registerPassword" id="registerPassword" placeholder="password" type="password"><br>
+                <button id="registerSubmit" onclick="return false;">Register</button>
+                <h4 id="registerError"></h4>
+            </form>
+        </div>
+    </div>
     <div class="card" data-label="card" th:each="category,iterStat : ${categories}">
         <strong th:text="${category.name}">Category Title</strong>
             <div id="products" class="row">
@@ -65,7 +89,7 @@
                                 <p class="lead" th:text="${prod.getPrice()}">100 USD</p>
                             </div>
                             <div class="card-text">
-                                <button class="btn btn-success" type="button" th:id="${prod.name}">Add to cart</button>
+                                <button class="btn btn-success" onclick="return false;" th:id="${prod.name}">Add to data</button>
                             </div>
                         </div>
                     </div>
@@ -73,7 +97,6 @@
             </div>
         </div>
     </div>
-
 </div>
 
 <div th:replace="footer.html :: copy"></div>
