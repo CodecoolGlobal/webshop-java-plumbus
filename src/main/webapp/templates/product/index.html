@@ -40,6 +40,7 @@
 
 <button class="" id="login_button" >Log in</button>
 <button class="" id="register_button" >Register</button>
+<button type="button" class="order-history">Order History</button>
 
 <div class="category-container">
     <div class="category">
@@ -70,6 +71,9 @@
                 <button id="register_submit" type="button">Register</button>
                 <h4 id="register_error"></h4>
             </form>
+            <div id="history" class="hide">
+                <h2>Order History</h2><br>
+            </div>
         </div>
     </div>
     <div class="card" data-label="card" th:each="category,iterStat : ${categories}">

@@ -23,6 +23,6 @@ public class CartPage extends HttpServlet {
         WebContext context = new WebContext(req, resp, req.getServletContext());
         context.setVariable("items", cartDaoMem.getAll());
         System.out.println(cartDaoMem.getAll());
-        engine.process("product/cart.html", context, resp.getWriter());
+        engine.process("prodgit uct/cart.html", context, resp.getWriter());
     }
 }
