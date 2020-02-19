@@ -33,18 +33,18 @@
     text-align: center;
 }
 
-#login_form {
+#loginForm {
     text-align: center;
 }
 
-#login_submit{
+#loginSubmit{
     margin-top: 10px;
 }
 
-#register_form {
+#registerForm {
     text-align: center;
 }
 
-#register_submit{
+#registerSubmit{
     margin-top: 10px;
 }
