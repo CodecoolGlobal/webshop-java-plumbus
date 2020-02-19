@@ -1,0 +1,4 @@
+INSERT INTO public.product_category (id, name, department, description) VALUES (1, 'Single Board Computer', 'Hardware', 'Single board computers are used for lightweight tasks, they need very little amount of power.');
+INSERT INTO public.product_category (id, name, department, description) VALUES (2, 'Notebook', 'Hardware', 'Notebooks are reliable way of having a computer with you on the go.');
+INSERT INTO public.product_category (id, name, department, description) VALUES (3, 'Graphics Card', 'Hardware', 'Graphics card are mainly used for gaming, it boosts the graphical processing power of the computer');
+INSERT INTO public.product_category (id, name, department, description) VALUES (4, 'CPU', 'Hardware', 'Central processing units are the brain of computers');

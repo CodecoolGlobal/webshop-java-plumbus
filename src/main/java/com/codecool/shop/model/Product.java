@@ -1,17 +1,16 @@
 package com.codecool.shop.model;
 
-import java.util.Currency;
 
 public class Product extends BaseModel {
 
     private float defaultPrice;
-    private Currency defaultCurrency;
+    private String defaultCurrency;
     private ProductCategory productCategory;
     private Supplier supplier;
 
 
-    public Product(String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier) {
-        super(name, description);
+    public Product(String name, float defaultPrice, String currencyString, String description, ProductCategory productCategory, Supplier supplier, int id) {
+        super(name, description, id);
         this.setPrice(defaultPrice, currencyString);
         this.setSupplier(supplier);
         this.setProductCategory(productCategory);
@@ -25,21 +24,21 @@ public class Product extends BaseModel {
         this.defaultPrice = defaultPrice;
     }
 
-    public Currency getDefaultCurrency() {
+    public String getDefaultCurrency() {
         return defaultCurrency;
     }
 
-    public void setDefaultCurrency(Currency defaultCurrency) {
+    public void setDefaultCurrency(String defaultCurrency) {
         this.defaultCurrency = defaultCurrency;
     }
 
     public String getPrice() {
-        return String.valueOf(this.defaultPrice) + " " + this.defaultCurrency.toString();
+        return this.defaultPrice + " " + this.defaultCurrency;
     }
 
     public void setPrice(float price, String currency) {
         this.defaultPrice = price;
-        this.defaultCurrency = Currency.getInstance(currency);
+        this.defaultCurrency = currency;
     }
 
     public ProductCategory getProductCategory() {
@@ -71,7 +70,7 @@ public class Product extends BaseModel {
                 this.id,
                 this.name,
                 this.defaultPrice,
-                this.defaultCurrency.toString(),
+                this.defaultCurrency,
                 this.productCategory.getName(),
                 this.supplier.getName());
     }
