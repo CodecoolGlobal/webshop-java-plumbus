@@ -3,6 +3,7 @@ package com.codecool.shop.controller;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.implementation.CartDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
+import com.codecool.shop.model.Cart;
 import com.codecool.shop.model.Product;
 import com.google.gson.Gson;
 
@@ -22,22 +23,18 @@ public class CartApi extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<Product> currentCart = new ArrayList<>();
         String cartJson = req.getReader().lines().collect(Collectors.joining());
         Gson gson = new Gson();
-        Cart cart = gson.fromJson(cartJson, Cart.class);
-        for (Map.Entry<String, CartProduct> product : cart.items.entrySet()) {
+        JsonCart jsonCart = gson.fromJson(cartJson, JsonCart.class);
+        for (Map.Entry<String, CartProduct> product : jsonCart.items.entrySet()) {
             for (int i = 0; i < product.getValue().quantity; i++) {
-                currentCart.add(productDao.find(product.getValue().name));
+                cartDao.add(productDao.find(product.getValue().name));
             }
         }
-        cartDao.clear();
-        for (Product item : currentCart) {
-            cartDao.add(item);
-        }
+
     }
 
-    public class Cart {
+    public class JsonCart {
         public HashMap<String, CartProduct> items;
 
     }
