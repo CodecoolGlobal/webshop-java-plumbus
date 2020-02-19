@@ -13,9 +13,10 @@ public class BaseModel {
         this.name = name;
     }
 
-    public BaseModel(String name, String description) {
+    public BaseModel(String name, String description, int id) {
         this.name = name;
         this.description = description;
+        this.id = id;
     }
 
 
@@ -48,14 +49,14 @@ public class BaseModel {
         final StringBuilder sb = new StringBuilder();
         for (Field field : this.getClass().getDeclaredFields()) {
             field.setAccessible(true);
-            Object value = null;
+            Object value;
             try {
                 value = field.get(this);
                 if (value != null) {
-                    sb.append(field.getName() + ":" + value + ",");
+                    sb.append(field.getName()).append(":").append(value).append(",");
                 }
             } catch (IllegalAccessException e) {
-
+                e.printStackTrace();
             }
         }
         return sb.toString();
