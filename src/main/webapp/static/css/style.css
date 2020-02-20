@@ -60,3 +60,19 @@ button:hover {
 .cart {
     margin-left:8rem;
 }
+
+#loginButton {
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    font-size: 2rem;
+    background-color: blue;
+    color: #eeeeee;
+}
+
+#registerButton {
+    margin-bottom: 1rem;
+    border-radius: 15px;
+    font-size: 2rem;
+    background-color: blue;
+    color: #eeeeee;
+}
