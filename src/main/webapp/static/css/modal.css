@@ -19,9 +19,11 @@
 }
 
 .modal-content {
-    padding: 5px;
+    padding: 20px;
     background-color: whitesmoke;
     opacity: 0.9;
+    width: 20rem;
+    height: 20rem;
 }
 
 #close_modal {
@@ -39,6 +41,8 @@
 
 #loginSubmit{
     margin-top: 10px;
+    border-radius: 15px;
+    font-size: 1rem;
 }
 
 #registerForm {
@@ -47,4 +51,10 @@
 
 #registerSubmit{
     margin-top: 10px;
+    border-radius: 15px;
+    font-size: 1rem;
+}
+
+#registerName {
+    margin-bottom: 1rem;
 }
