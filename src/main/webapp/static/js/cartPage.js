@@ -51,7 +51,6 @@ function buildPage(pageContent) {
     let toAppend = "";
     for (let item in pageContent) {
         if (pageContent[item] !== 0) {
-            console.log(item);
             toAppend += `
                 <div class="card">
                     <div class="card-body">
@@ -86,13 +85,40 @@ function printOutPrices(price) {
     appendTo.appendChild(nodeCard);
 }
 
+function refreshPrices() {
+    const basePrices =
+        {"Raspberry Pi 3B": 48.85,
+        "Raspberry Pi 3B+": 55.96,
+        "Raspberry Pi 4B [4GB]": 76.99,
+        "Arduino Uno R3": 18.0,
+        "Raspberry Pi 3A+": 24.9,
+        "Lenovo IdeaPad S145": 466.9,
+        "Lenovo Legion Y540": 998.99,
+        "ASUS ROG Strix G531GT": 999.9,
+        "Apple MacBook Pro 16": 2999.9,
+        "Gigabyte GeForce GTX 1660 Ti OC 6GB": 319.9,
+        "GIGABYTE GeForce GTX 1050 Ti OC 4GB": 165.0,
+        "GIGABYTE GeForce RTX 2060 SUPER AORUS 8GB": 519.9,
+        "AMD Ryzen 5 3600 Hexa-Core 3.6GHz AM4 Processor": 209.9,
+        "AMD Ryzen 7 3700x Octa-Core 3.6GHz AM4": 399.9
+        };
+
+    let cards = document.querySelectorAll(".card-body");
+
+    for (let card of cards) {
+        let cardTitle = card.childNodes[0].nextSibling.innerText;
+        console.log(cardTitle)
+    }
+}
+
 
 
 function main() {
     let price = collectPrices();
     let pageContent = collectQuantities();
-    buildPage(pageContent);
-    printOutPrices(price);
     clearPage();
+    buildPage(pageContent);
+    refreshPrices();
+    printOutPrices(price);
 }
 main();
