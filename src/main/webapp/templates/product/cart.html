@@ -37,9 +37,9 @@
     <h1 class="main_title">Electronics Shop</h1>
 </div>
 
-<h3><strong>Cart Content:</strong></h3>
+<h3 class="lol"><strong>Cart Content:</strong></h3>
 <div class="container">
-    <div th:each="item,iterStat : ${items}">
+    <div class="iterator" th:each="item,iterStat : ${items}">
         <div class="card">
             <!--<img class="card-img-top" src="..." alt="Card image cap"> -->
             <div class="card-body">
@@ -48,11 +48,9 @@
                 <p class="card-text"><small class="text-muted"><span th:text="${item.supplier.name}"></span></small></p>
             </div>
         </div>
-
     </div>
-    <span id="last_element"></span>
-
 </div>
+    <span id="last_element"></span>
 <a href="/">Main page</a>
 
 <div th:replace="footer.html :: copy"></div>

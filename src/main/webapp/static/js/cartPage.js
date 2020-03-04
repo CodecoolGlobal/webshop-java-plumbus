@@ -41,13 +41,32 @@ function collectQuantities() {
 }
 
 function clearPage() {
-    let cards = document.querySelectorAll(".card");
+    let cards = document.querySelectorAll(".iterator");
     for (let card of cards) {
         card.remove();
     }
 }
 
-
+function buildPage(pageContent) {
+    let toAppend = "";
+    for (let item in pageContent) {
+        if (pageContent[item] !== 0) {
+            console.log(item);
+            toAppend += `
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">${item}</h5>
+                        <p class="card-text price">Price: 69.420</p>
+                        <p class="card-text"><small class="text-muted">Electronics Inc</small></p>
+                    </div>
+                </div>
+            `;
+        }
+    }
+    let element = document.querySelector(".container");
+    let node = document.createRange().createContextualFragment(toAppend);
+    element.appendChild(node);
+}
 
 
 
@@ -67,8 +86,9 @@ function printOutPrices(price) {
 
 
 function main() {
-    let pageContent = collectQuantities();
     let price = collectPrices();
+    let pageContent = collectQuantities();
+    buildPage(pageContent);
     printOutPrices(price);
     clearPage();
 }
