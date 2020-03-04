@@ -56,6 +56,9 @@ function buildPage(pageContent) {
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title">${item}</h5>
+                        <span class="minus"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Minus_font_awesome.svg/512px-Minus_font_awesome.svg.png" width="25" height="25"></span>
+                        <span class="plus"><img src="https://www.ectopay.com/ctopayb2b/gbweb_new/assets/110912-font-awesome/png/add-square-button.png" width="25" height="25"></span>
+                        <p class="quantity">Quantity: <span class="quantity-number">${pageContent[item]}</span></p>
                         <p class="card-text price">Price: 69.420</p>
                         <p class="card-text"><small class="text-muted">Electronics Inc</small></p>
                     </div>

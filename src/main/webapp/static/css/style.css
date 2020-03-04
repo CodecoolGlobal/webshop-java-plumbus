@@ -60,3 +60,19 @@ button:hover {
 .cart {
     margin-left:8rem;
 }
+
+.quantity {
+    margin-left: 25rem;
+}
+
+.minus {
+    position: relative;
+    margin-left: 23rem;
+    top: 1.5rem;
+}
+
+.plus {
+    position: relative;
+    margin-left: 5.7rem;
+    top: 1.5rem;
+}
