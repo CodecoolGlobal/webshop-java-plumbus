@@ -40,6 +40,15 @@ function collectQuantities() {
     return items;
 }
 
+function clearPage() {
+    let cards = document.querySelectorAll(".card");
+    for (let card of cards) {
+        card.remove();
+    }
+}
+
+
+
 
 
 function printOutPrices(price) {
@@ -61,5 +70,6 @@ function main() {
     let pageContent = collectQuantities();
     let price = collectPrices();
     printOutPrices(price);
+    clearPage();
 }
 main();
