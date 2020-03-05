@@ -138,6 +138,18 @@ function minusButton() {
     }
 }
 
+function plusButton() {
+    let buttons = document.querySelectorAll(".plus");
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            let quantityText = button.parentNode.querySelectorAll(".quantity")[0].innerText;
+            let quantityNum = quantityText.split(" ")[1];
+            quantityNum++;
+            button.parentNode.querySelectorAll(".quantity")[0].innerText = `Quantity: ${quantityNum}`;
+            refreshPrices();
+        })
+    }
+}
 
 
 
@@ -149,5 +161,6 @@ function main() {
     refreshPrices();
     printOutPrices(price);
     minusButton();
+    plusButton();
 }
 main();
