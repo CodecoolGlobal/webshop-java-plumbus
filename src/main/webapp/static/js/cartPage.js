@@ -7,6 +7,14 @@ function collectPrices() {
     return total;
 }
 
+function setLocalStorage(name, object) {
+    localStorage.setItem(name, JSON.stringify(object));
+}
+
+function getLocalStorage(name) {
+    return JSON.parse(localStorage.getItem(name));
+}
+
 
 function collectQuantities() {
     let items = {"Raspberry Pi 3B": 0,
@@ -112,10 +120,8 @@ function refreshPrices() {
                 if (item === cardTitle.innerText) {
                     let quantityText = cardTitle.parentNode.querySelectorAll(".quantity")[0].innerText;
                     let quantity = quantityText.split(" ")[1];
-                    console.log(quantity);
                     cardTitle.parentNode.querySelectorAll(".price")[0].innerText = `Price: ${Math.round((basePrices[item] * quantity) *100 ) /100}`;
                 }
-
             }
         }
 
@@ -123,7 +129,41 @@ function refreshPrices() {
 
 function minusButton() {
     let buttons = document.querySelectorAll(".minus");
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            let quantityText = button.parentNode.querySelectorAll(".quantity")[0].innerText;
+            let quantityNum = quantityText.split(" ")[1];
+            if (quantityNum > 0) {
+                quantityNum--;
+                button.parentNode.querySelectorAll(".quantity")[0].innerText = `Quantity: ${quantityNum}`;
+                refreshPrices();
+                let itemName = button.parentNode.querySelector(".card-title").innerHTML;
+                cart = getLocalStorage("cart");
+                cart.items[itemName].quantity--;
+                setLocalStorage("cart", cart);
+            }
+            if (quantityNum === 0) {
+                button.parentNode.parentNode.parentNode.removeChild(button.parentNode.parentNode);
+            }
+        })
+    }
+}
 
+function plusButton() {
+    let buttons = document.querySelectorAll(".plus");
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            let quantityText = button.parentNode.querySelectorAll(".quantity")[0].innerText;
+            let quantityNum = quantityText.split(" ")[1];
+            quantityNum++;
+            button.parentNode.querySelectorAll(".quantity")[0].innerText = `Quantity: ${quantityNum}`;
+            refreshPrices();
+            let itemName = button.parentNode.querySelector(".card-title").innerHTML;
+            cart = getLocalStorage("cart");
+            cart.items[itemName].quantity++;
+            setLocalStorage("cart", cart);
+        })
+    }
 }
 
 
@@ -135,5 +175,7 @@ function main() {
     buildPage(pageContent);
     refreshPrices();
     printOutPrices(price);
+    minusButton();
+    plusButton();
 }
 main();
