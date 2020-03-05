@@ -16,6 +16,11 @@ export function cartInit() {
         setLocalStorage("cart", cart);
     }
 
+    function sendInitialCart() {
+        let cart = getLocalStorage("cart");
+        postFetch("/api/cart", cart);
+    }
+
     const buttons = document.querySelectorAll(".btn");
     let items = {};
     for (let button of buttons) {
@@ -27,6 +32,7 @@ export function cartInit() {
         setLocalStorage("cart", {items: items})
     }
 
+    sendInitialCart();
 }
     async function postFetch(url, data) {
         try {postData(url, data) // JSON-string from `response.json()` call
