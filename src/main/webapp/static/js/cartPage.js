@@ -112,7 +112,6 @@ function refreshPrices() {
                 if (item === cardTitle.innerText) {
                     let quantityText = cardTitle.parentNode.querySelectorAll(".quantity")[0].innerText;
                     let quantity = quantityText.split(" ")[1];
-                    console.log(quantity);
                     cardTitle.parentNode.querySelectorAll(".price")[0].innerText = `Price: ${Math.round((basePrices[item] * quantity) *100 ) /100}`;
 
                 }
@@ -125,8 +124,20 @@ function refreshPrices() {
 
 function minusButton() {
     let buttons = document.querySelectorAll(".minus");
-
+    for (let button of buttons) {
+        button.addEventListener("click", function () {
+            let quantityText = button.parentNode.querySelectorAll(".quantity")[0].innerText;
+            let quantityNum = quantityText.split(" ")[1];
+            quantityNum--;
+            if (quantityNum >= 0) {
+                button.parentNode.querySelectorAll(".quantity")[0].innerText = `Quantity: ${quantityNum}`;
+                refreshPrices();
+                //TODO: implement delete
+            }
+        })
+    }
 }
+
 
 
 
@@ -137,5 +148,6 @@ function main() {
     buildPage(pageContent);
     refreshPrices();
     printOutPrices(price);
+    minusButton();
 }
 main();
