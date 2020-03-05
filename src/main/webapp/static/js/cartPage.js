@@ -123,6 +123,11 @@ function refreshPrices() {
     }
 }
 
+function minusButton() {
+    let buttons = document.querySelectorAll(".minus");
+
+}
+
 
 
 function main() {
