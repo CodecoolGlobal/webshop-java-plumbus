@@ -1,7 +1,6 @@
 export function cartInit() {
     function setLocalStorage(name, object) {
         localStorage.setItem(name, JSON.stringify(object));
-        console.log(object);
     }
 
     function getLocalStorage(name) {

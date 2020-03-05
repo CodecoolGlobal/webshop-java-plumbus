@@ -109,19 +109,16 @@ function refreshPrices() {
     for (let card of cards) {
         let cardTitle = card.childNodes[0].nextSibling;
         for (let item in basePrices) {
-            try {
                 if (item === cardTitle.innerText) {
                     let quantityText = cardTitle.parentNode.querySelectorAll(".quantity")[0].innerText;
                     let quantity = quantityText.split(" ")[1];
                     console.log(quantity);
                     cardTitle.parentNode.querySelectorAll(".price")[0].innerText = `Price: ${Math.round((basePrices[item] * quantity) *100 ) /100}`;
-
                 }
-            } catch (e) {
-                console.log(e);
+
             }
         }
-    }
+
 }
 
 function minusButton() {
